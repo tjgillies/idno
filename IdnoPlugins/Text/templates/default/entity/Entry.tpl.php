@@ -6,11 +6,11 @@
     }
 ?>
 <div itemscope itemtype="http://schema.org/Article">
-    <div><h2 class="p-name">
+    <h2 class="p-name">
         <a href="<?=$vars['object']->getURL()?>">
             <span itemprop="name"> <?=$vars['object']->getTitle()?></span>
         </a>
-    </h2></div>
+    </h2>
     <div><?=$vars['object']->getImage()?></div>
     <p>
         <span class="vague">Reading time: <?php
@@ -23,5 +23,5 @@
 
                 ?></span>
     </p>
+    <?php echo $this->autop($this->parseURLs($this->parseHashtags($vars['object']->body),$rel)); //TODO: a better rendering algorithm ?>
 </div>
-<?php echo $this->autop($this->parseURLs($this->parseHashtags($vars['object']->body),$rel)); //TODO: a better rendering algorithm ?></div>
